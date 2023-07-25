@@ -8,7 +8,7 @@
 #include <sys/wait.h>
 
 int main() {
-
+    FILE* fp;
     int p[2];
     char message[100];
     pid_t pid;
@@ -39,6 +39,11 @@ int main() {
                 close(p[1]);
                 read(p[0], message, sizeof(message));
                 printf("\nTHIS WAS SENT TO PARENT: %s\n", message);
+                
+                fp = open("file.txt", "wb");
+                fwrite(&message, strlen(message), 1, fp);
+                fclose(fp);
+                
                 wait(&rv);
         }
         memset(message, 0, 100);
