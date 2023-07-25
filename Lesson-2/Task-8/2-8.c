@@ -24,8 +24,8 @@ int main() {
         randomNumber = rand() % 10000;
         sprintf(message1, "%d", randomNumber);
 
-        randomNumber = rand() % 10000;
-        sprintf(message2, "%d", randomNumber);
+        //randomNumber = rand() % 10000;
+        //sprintf(message2, "%d", randomNumber);
 
         if (pipe(p1) || pipe(p2)) {
             perror("pipe() error");
@@ -49,9 +49,12 @@ int main() {
                 close(p1[1]);
                 close(p2[0]);
 
-                write(p2[1], message2, strlen(message2) + 1);
                 read(p1[0], message1, sizeof(message1));
-
+                int num;
+                sscanf(message1, "%d", &num);
+                num *= 2;
+                sprintf(message2, "%d", num);
+                write(p2[1], message2, strlen(message2) + 1);
                 printf("\nTHIS WAS SENT TO PARENT: %s\n", message1);
 
                 wait(&rv);
