@@ -13,4 +13,4 @@
 пошагово выделяется в зависимости от размера введенного пользователем аргумента.
 Ограничения по входным данным - не больше 5.
 <br>
-![Image Alt](https://github.com/ABoriskina/Module-3/blob/main/Lesson-1/Task-1-4/4.png)
+![Image Alt](https://github.com/ABoriskina/Module-3/blob/main/Lesson-1/Task-1-4/Screenshot%20from%202023-07-27%2016-28-03.png)
